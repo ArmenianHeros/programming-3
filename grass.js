@@ -4,7 +4,8 @@ module.exports = class Grass extends LivingCreature {
 
     bazmanal() {
         this.multiplay++;
-        var norVandak = random(this.chooseCell(0));
+        var xot = this.chooseCell(0);
+        var miHatXot = xot[Math.floor(Math.random() * xot.length)]
         if (this.multiplay >= 8 && norVandak) {
             var norXot = new Grass(norVandak[0], norVandak[1]);
             grassArr.push(norXot);

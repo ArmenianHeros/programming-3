@@ -3,8 +3,8 @@ module.exports = class Gishatich extends LivingCreature {
 
     utel1() {
         this.stanalNorKordinatner();
-        var xot = this.yntrelVandak(1);
-        var miHatXot = random(xot);
+        var xot = this.chooseCell(1);
+        var miHatXot = xot[Math.floor(Math.random() * xot.length)]
         if (miHatXot) {
             matrix[this.y][this.x] = 0;
             matrix[miHatXot[1]][miHatXot[0]] = 3;
@@ -29,8 +29,10 @@ module.exports = class Gishatich extends LivingCreature {
 
     utel() {
         this.stanalNorKordinatner();
-        var xot = this.yntrelVandak(2);
-        var miHatXot = random(xot);
+        
+        var xot = this.chooseCell(2);
+        
+        var miHatXot = xot[Math.floor(Math.random() * xot.length)]
         if (miHatXot) {
             matrix[this.y][this.x] = 0;
             matrix[miHatXot[1]][miHatXot[0]] = 3;
@@ -72,8 +74,9 @@ module.exports = class Gishatich extends LivingCreature {
 
     sharjvel() {
         this.stanalNorKordinatner();
-        var voidCells = this.yntrelVandak(0);
-        var newCell = random(voidCells);
+        var xot = this.chooseCell(0);
+        
+        var newCell = xot[Math.floor(Math.random() * xot.length)]
         if (newCell) {
             matrix[this.y][this.x] = 0;
             this.x = newCell[0];

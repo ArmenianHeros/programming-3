@@ -5,8 +5,9 @@ module.exports = class Amenaker extends LivingCreature {
 
     utel1() {
         this.stanalNorKordinatner();
-        var xot = this.yntrelVandak();
-        var miHatXot = random(xot);
+        var xot = this.chooseCell(1).concat(this.chooseCell(2).concat(this.chooseCell(3)));
+        
+        var miHatXot = xot[Math.floor(Math.random() * xot.length)]
         if (miHatXot) {
             if (matrix[miHatXot[1]][miHatXot[0]] == 1) {
                 for (var i in grassArr) {
@@ -53,8 +54,9 @@ module.exports = class Amenaker extends LivingCreature {
     
     utel() {
         this.stanalNorKordinatner();
-        var xot = this.yntrelVandak(2);
-        var miHatXot = random(xot);
+        var xot = this.chooseCell(2);
+        
+        var newCell = xot[Math.floor(Math.random() * xot.length)]
         if (miHatXot) {
             matrix[this.y][this.x] = 0;
             matrix[miHatXot[1]][miHatXot[0]] = 4;
