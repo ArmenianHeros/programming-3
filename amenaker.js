@@ -3,67 +3,20 @@ module.exports = class Amenaker extends LivingCreature {
 
     
 
-    utel1() {
-        this.stanalNorKordinatner();
-        var xot = this.chooseCell(1).concat(this.chooseCell(2).concat(this.chooseCell(3)));
-        
-        var miHatXot = xot[Math.floor(Math.random() * xot.length)]
-        if (miHatXot) {
-            if (matrix[miHatXot[1]][miHatXot[0]] == 1) {
-                for (var i in grassArr) {
-                    if (this.x == grassArr[i].x && this.y == grassArr[i].y) {
-                        grassArr.splice(i, 1);
 
-                    }
-                }
-
-            }
-
-            else if (matrix[miHatXot[1]][miHatXot[0]] == 2) {
-                for (var i in grassArr) {
-                    if (this.x == grassArr[i].x && this.y == grassArr[i].y) {
-                        grassArr.splice(i, 2);
-
-                    }
-                }
-            }
-
-               else if (matrix[miHatXot[1]][miHatXot[0]] == 3) {
-                for (var i in grassArr) {
-                    if (this.x == grassArr[i].x && this.y == grassArr[i].y) {
-                        grassArr.splice(i, 3);
-
-                    }
-                }
-               }
-            matrix[this.y][this.x] = 0;
-            matrix[miHatXot[1]][miHatXot[0]] = 4;
-            this.x = miHatXot[0];
-            this.y = miHatXot[1];
-            this.energy++;
-
-
-
-        }
-        else {
-           
-        }
-
-    }
         
     
     utel() {
         this.stanalNorKordinatner();
         var xot = this.chooseCell(2);
         
-        var newCell = xot[Math.floor(Math.random() * xot.length)]
+        var miHatXot = xot[Math.floor(Math.random() * xot.length)]
         if (miHatXot) {
             matrix[this.y][this.x] = 0;
             matrix[miHatXot[1]][miHatXot[0]] = 4;
             this.x = miHatXot[0];
             this.y = miHatXot[1];
             this.energy++;
-            this.bazmanal();
             for (var i in xotakerner) {
                 if (this.x == xotakerner[i].x && this.y == xotakerner[i].y) {
                     xotakerner.splice(i, 1);
@@ -73,9 +26,7 @@ module.exports = class Amenaker extends LivingCreature {
 
 
         }
-        else {
-            this.utel1();
-        }
+    
 
     }
 
