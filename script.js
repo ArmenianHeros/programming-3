@@ -31,3 +31,11 @@ console.log(matrix);
 }
 
 socket.on("matrix", drawmatrix);
+
+
+function jnjelClick(evt){
+    socket.emit("jnjel");
+}
+
+var p = document.getElementById("jnjel");
+p.addEventListener("click", jnjelClick);

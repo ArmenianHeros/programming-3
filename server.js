@@ -103,6 +103,58 @@ function xax() {
 setInterval(xax, 1000);
 
 
+ 
+
+function erevuyte(x, y) {
+    if (matrix[y][x] == 1) {
+        for (var c in grassArr) {
+            if (grassArr[c].x == x && grassArr.y == y) {
+                grassArr.slice(c, 1);
+            }
+        }
+    }
+    if (matrix[y][x] == 2) {
+        for (var c in xotakerner) {
+            if (xotakerner[c].x == x && xotakerner.y == y) {
+                xotakerner.slice(c, 1);
+            }
+        }
+    }
+    if (matrix[y][x] == 3) {
+        for (var c in gishatichner) {
+            if (gishatichner[c].x == x && gishatichner.y == y) {
+                gishatichner.slice(c, 1);
+            }
+        }
+    }
+    if (matrix[y][x] == 4) {
+        for (var c in amenaker) {
+            if (amenaker[c].x == x && amenaker.y == y) {
+                amenaker.slice(c, 1);
+
+            }
+        }
+    }
+    matrix[y][x] = 0;
+}
+
+
+io.on('connection', function (socket) {
+    socket.on("jnjel", function (data) {
+        erevuyte(0, 0);
+        erevuyte(0, 1);
+        erevuyte(0, 2);
+        erevuyte(0, 3);
+        erevuyte(1, 0);
+        erevuyte(1, 1);
+        erevuyte(1, 2);
+        erevuyte(1, 3);
+        erevuyte(2, 0);
+        erevuyte(2, 1);
+        erevuyte(2, 2);
+        erevuyte(2, 3);
+    });
+ });
 
 
 
